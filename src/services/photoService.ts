@@ -1,22 +1,25 @@
-import type { Photo } from "../types/photo";
+import axios from "axios"
+import type { Photo } from "../types/photo"
 
-export const getPhotos = async () => {
-  const response = await fetch(
-    "https://jsonplaceholder.typicode.com/photos"
-  )
-  const data = await response.json();
-  const latestData = data.slice(0 , 100)
-   console.log(latestData);
-   
-  return latestData
+const API_URL = "https://jsonplaceholder.typicode.com"
+
+export const getPhotos = async (): Promise<Photo[]> => {
+  const response = await axios.get(`${API_URL}/photos?_limit=100`)
+  console.log(response.data);
+  
+  return response.data
 }
 
 export const getPhotoById = async (id: string): Promise<Photo> => {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/photos/${id}`
+  const response = await axios.get(`${API_URL}/photos/${id}`)
+  return response.data
+}
+
+export const sendPhotoId = async (id: number) => {
+  const response = await axios.post(
+    "https://jsonplaceholder.typicode.com/posts",
+    { photoIdd: id }
   )
 
-  const data: Photo = await response.json()
-
-  return data
+  return response.data
 }
