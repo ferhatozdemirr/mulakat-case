@@ -6,7 +6,7 @@ const API_URL = "https://jsonplaceholder.typicode.com"
 export const getPhotos = async (): Promise<Photo[]> => {
   const response = await axios.get(`${API_URL}/photos?_limit=100`)
   console.log(response.data);
-  
+   
   return response.data
 }
 

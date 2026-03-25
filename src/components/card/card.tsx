@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import type { Photo } from "../../types/photo"
 import { useEffect, useState } from "react"
 import { sendPhotoId } from "../../services/photoService"
-
+import styles from '../card.module.css'
 
 interface CardProps {
   photo: Photo
@@ -18,7 +18,7 @@ const [buttonCardId, setButtonCardId] = useState<boolean>(false)
  }, [buttonCardId])
  
   return (
-       <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+       <div className={`${styles.card} bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition`}>
 
       <img
         src={photo?.url}

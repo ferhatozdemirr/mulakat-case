@@ -17,13 +17,12 @@ function Home() {
   }, [])
 
   return (
-    <div className="p-10 grid grid-cols-4 gap-6">
-
-      {photos.slice(0, 50).map((photo) => (
-        <Card key={photo.id} photo={photo} />
-      ))}
-
-    </div>
+    //<div className="p-10 grid grid-cols-4 gap-6">
+     // {photos.slice(0, 50).map((photo) => (
+       // <Card key={photo.id} photo={photo} />
+      //))}
+    //</div>
+    <div></div>
   )
 }
 
